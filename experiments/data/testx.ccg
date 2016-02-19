@@ -1,0 +1,2 @@
+欢乐谷 的 门票 多少 钱
+(price:<<e,t>,i> (lambda $0:e (and:<t*,t> (ticket:<e,t> $0) (loc:<lo,<lo,t>> $0 欢乐谷:sc))))

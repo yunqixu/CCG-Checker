@@ -1,0 +1,14 @@
+(
+
+(i e)		//i for numbers
+(lo e)		//lo for location
+(na lo)		//na for nation
+(c lo)		//c for city
+(to lo)		//to for town
+(sc lo)		//sc for scenic spots
+(te lo)
+(p lo)
+(r lo)
+
+)
+
