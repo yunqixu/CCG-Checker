@@ -28,9 +28,9 @@ public class CheckFrame extends javax.swing.JFrame {
     private boolean isLexiconChecked;
     private boolean isSentenceChecked;
     private boolean isChecked;
+    private boolean isExtracted;
     
     private Ontology ontology;
-    private TypeRepository typeRepository;
     
 //    
 //    private ccgParser cp = new ccgParser();
@@ -104,17 +104,16 @@ public class CheckFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(sentenceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rawSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 1018, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(rawSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 1023, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sentencePanelLayout.setVerticalGroup(
             sentencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sentencePanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(sentencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sentenceLabel)
-                    .addComponent(rawSentence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(rawSentence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         sentenceAnnotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "sentence annotation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("华文中宋", 3, 12), java.awt.Color.black)); // NOI18N
@@ -159,8 +158,7 @@ public class CheckFrame extends javax.swing.JFrame {
                         .addComponent(sentenceAnnotationLabel))
                     .addComponent(sentenceAnnotationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(checkSentenceButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(checkSentenceButton))
         );
 
         lexiconAnnotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "lexicon annotation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Unicode MS", 3, 12), java.awt.Color.black)); // NOI18N
@@ -209,46 +207,42 @@ public class CheckFrame extends javax.swing.JFrame {
         lexiconAnnotationPanelLayout.setHorizontalGroup(
             lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(14, 14, 14)
+                .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                        .addComponent(checkAllButton)
-                        .addGap(387, 387, 387)
-                        .addComponent(checkLexiconButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(654, 654, 654)
+                        .addComponent(npAnnotationLabel))
                     .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lexiconAnnotationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lexiconAnnotationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)))
-                .addGap(88, 88, 88)
-                .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(9, 9, 9)
+                        .addComponent(lexiconAnnotationLabel))
                     .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                        .addComponent(npAnnotationLabel)
+                        .addComponent(checkLexiconButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(checkNPButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lexiconAnnotationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(checkNPButton))
+                    .addComponent(checkAllButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         lexiconAnnotationPanelLayout.setVerticalGroup(
             lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(lexiconAnnotationScrollPane)
-                    .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                        .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(npAnnotationLabel)
-                            .addComponent(lexiconAnnotationLabel))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkAllButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(lexiconAnnotationPanelLayout.createSequentialGroup()
-                        .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(checkLexiconButton)
-                            .addComponent(checkNPButton))
-                        .addGap(13, 13, 13))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(lexiconAnnotationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lexiconAnnotationPanelLayout.createSequentialGroup()
+                        .addComponent(npAnnotationLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(checkNPButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lexiconAnnotationPanelLayout.createSequentialGroup()
+                        .addComponent(lexiconAnnotationLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(checkLexiconButton))
+                    .addComponent(lexiconAnnotationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(checkAllButton))
         );
 
         saveButton.setFont(new java.awt.Font("Arial Unicode MS", 0, 12)); // NOI18N
@@ -288,35 +282,30 @@ public class CheckFrame extends javax.swing.JFrame {
         ontologyPanelLayout.setHorizontalGroup(
             ontologyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ontologyPanelLayout.createSequentialGroup()
-                .addGroup(ontologyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(extractOntologyButton)
-                    .addGroup(ontologyPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(newOntologyLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106)
-                        .addComponent(existingOntologyLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(newOntologyLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(existingOntologyLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(extractOntologyButton)
+                .addContainerGap())
         );
         ontologyPanelLayout.setVerticalGroup(
             ontologyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ontologyPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ontologyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ontologyPanelLayout.createSequentialGroup()
+                .addGroup(ontologyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(extractOntologyButton)
+                    .addGroup(ontologyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(existingOntologyLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(ontologyPanelLayout.createSequentialGroup()
                         .addComponent(newOntologyLabel)
-                        .addGap(0, 135, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(extractOntologyButton)
-                .addContainerGap())
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -325,10 +314,9 @@ public class CheckFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ontologyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ontologyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(sentencePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sentenceAnnotationPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -338,9 +326,8 @@ public class CheckFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(sentencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sentenceAnnotationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lexiconAnnotationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,6 +404,11 @@ public class CheckFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!isChecked){
             JOptionPane.showMessageDialog(this, "请先检查标注正确性");
+            return;
+        }
+        
+        if (!isExtracted){
+            JOptionPane.showMessageDialog(this, "请先对ontology项目进行抽取");
             return;
         }
         
@@ -528,6 +520,11 @@ public class CheckFrame extends javax.swing.JFrame {
 
     private void extractOntologyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractOntologyButtonActionPerformed
         // TODO add your handling code here:
+        if (!isChecked){
+            JOptionPane.showMessageDialog(this, "请先完成标注正确性检查");
+            return;
+        }
+        
         TreeSet<String> newOntologyEntries = new TreeSet<String>();
         TreeSet<String> existOntologyEntries = new TreeSet<String>();
         
@@ -549,6 +546,8 @@ public class CheckFrame extends javax.swing.JFrame {
         
         existingOntologyEntriesTextArea.setText(exist);
         newOntologyEntriesTextArea.setText(newAdd);
+        
+        isExtracted = true;
     }//GEN-LAST:event_extractOntologyButtonActionPerformed
     
     private void checkNPButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkNPButtonActionPerformed

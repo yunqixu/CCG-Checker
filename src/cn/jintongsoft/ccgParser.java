@@ -270,7 +270,11 @@ public class ccgParser {
     }
     
     public boolean checkNP(String newNP){
-        System.out.println(typeRepository.toString());
+        //System.out.println(typeRepository.toString());
+        newNP = newNP.trim();
+        if (newNP.length() < 1){
+            return true;
+        }
         String[] nps = newNP.split("\n");
         for (String np : nps){
             try{
@@ -300,6 +304,7 @@ public class ccgParser {
     }
     
     public void extractOntology(TreeSet<String> newOntologyEntries, TreeSet<String> existOntologyEntries, String semantics, Ontology ontology){
+        
         Ontology staticOntology = new Ontology(ontology.getAllConstants(), true);
         String[] tokens = semantics.split("\\s+");
         
